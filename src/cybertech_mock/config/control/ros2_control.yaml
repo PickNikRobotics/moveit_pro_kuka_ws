@@ -19,6 +19,7 @@ joint_trajectory_controller:
       - joint_4
       - joint_5
       - joint_6
+      - linear_rail
     command_interfaces:
       - position
     state_interfaces:
@@ -49,6 +50,9 @@ joint_trajectory_controller:
       joint_6:
         goal: 0.05
         trajectory: 0.25
+      linear_rail:
+        goal: 0.05
+        trajectory: 0.25
 
 servo_controller:
   ros__parameters:
@@ -59,6 +63,7 @@ servo_controller:
       - joint_4
       - joint_5
       - joint_6
+      - linear_rail
     command_interfaces:
       - position
     state_interfaces:
@@ -81,6 +86,8 @@ servo_controller:
         goal: 0.05
       joint_6:
         goal: 0.05
+      linear_rail:
+        goal: 0.05
 
 velocity_force_controller:
   ros__parameters:
@@ -99,8 +106,10 @@ velocity_force_controller:
       - 1.0
       - 1.0
       - 1.0
+      - 1.0
     # Maximum joint-space accelerations.
     max_joint_acceleration:
+      - 2.0
       - 2.0
       - 2.0
       - 2.0

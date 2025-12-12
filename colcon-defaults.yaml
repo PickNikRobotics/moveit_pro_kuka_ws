@@ -13,6 +13,11 @@ build:
     - build-testing-on
     - coverage-gcc
     - coverage-pytest
+  packages-up-to:
+    - cybertech_hw
+    - cybertech_mock
+  packages-ignore:
+    - kuka_gazebo
 test:
   event-handlers:
     - console_direct+

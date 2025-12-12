@@ -16,10 +16,12 @@
     - joint_4
     - joint_5
     - joint_6
+    - linear_rail
     position:
     - 0
     - -1.57
     - 1.57
+    - 0
     - 0
     - 0
     - 0
@@ -53,6 +55,7 @@
     - joint_4
     - joint_5
     - joint_6
+    - linear_rail
     position:
     - 0
     - -1.57
@@ -60,6 +63,7 @@
     - 0
     - 0
     - 0
+    - 1
     velocity: []
   multi_dof_joint_state:
     header:
