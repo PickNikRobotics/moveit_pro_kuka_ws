@@ -66,18 +66,15 @@ moveit_params:
   kinematics:
     package: "cybertech_mock"
     path: "config/moveit/pose_ik_distance.yaml"
-  servo:
-    package: "cybertech_mock"
-    path: "config/moveit/servo.yaml"
   joint_limits:
     package: "cybertech_mock"
     path: "config/moveit/joint_limits.yaml"
-  servo_joint_limits:
-    package: "cybertech_mock"
-    path: "config/moveit/joint_limits_servo.yaml"
   pose_jog:
     package: "cybertech_mock"
     path: "config/moveit/pose_jog.yaml"
+  joint_jog:
+    package: "cybertech_mock"
+    path: "config/moveit/joint_jog.yaml"
 
   publish:
     planning_scene: True
@@ -108,7 +105,7 @@ ros2_control:
   # [Optional, default=[]]
   controllers_inactive_at_startup:
     - "velocity_force_controller"
-    - "servo_controller"
+    - "joint_velocity_controller"
 # Configuration for loading behaviors and objectives.
 # [Required]
 objectives:
@@ -118,11 +115,11 @@ objectives:
     # This plugin will load the core MoveIt Pro Behaviors.
     # Add additional plugin loaders as needed.
     core:
-      - "moveit_studio::behaviors::CoreBehaviorsLoader"
-      - "moveit_studio::behaviors::MTCCoreBehaviorsLoader"
-      - "moveit_studio::behaviors::ServoBehaviorsLoader"
-      - "moveit_studio::behaviors::VisionBehaviorsLoader"
-      - "moveit_studio::behaviors::ConverterBehaviorsLoader"
+      - "moveit_pro::behaviors::CoreBehaviorsLoader"
+      - "moveit_pro::behaviors::MTCCoreBehaviorsLoader"
+      - "moveit_pro::behaviors::MPCBehaviorsLoader"
+      - "moveit_pro::behaviors::VisionBehaviorsLoader"
+      - "moveit_pro::behaviors::ConverterBehaviorsLoader"
   # Specify source folder for objectives
   # [Required]
   objective_library_paths:
