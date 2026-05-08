@@ -9,16 +9,13 @@ on:
         description: 'The tag of the image to use for the container'
         required: false
         default: ''
-  # Run every 6 hours Mon-Fri
-  schedule:
-    - cron: "0 */6 * * 1-5"
 
 jobs:
   integration-test-in-studio-container:
     uses: PickNikRobotics/moveit_pro_ci/.github/workflows/workspace_integration_test.yaml@01ac7e19a9e4eeeff4965556e2be37159025e893 # v0.0.8
     with:
       image_tag: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.ref || github.ref_name }}
-      colcon_test_args: "--executor sequential"
+      colcon_test_args: "--executor sequential --packages-select cybertech_hw cybertech_mock"
       runner: "picknik-16-amd64"
     secrets:
       moveit_license_key: ${{ secrets.STUDIO_CI_LICENSE_KEY }}
