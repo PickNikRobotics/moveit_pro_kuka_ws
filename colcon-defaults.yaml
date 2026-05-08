@@ -13,9 +13,6 @@ build:
     - build-testing-on
     - coverage-gcc
     - coverage-pytest
-  packages-ignore:
-    - iiqka_moveit_example
-    - kuka_gazebo
 test:
   event-handlers:
     - console_direct+
